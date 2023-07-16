@@ -1,14 +1,49 @@
 let taskButton = document.querySelector('#add-task');
 
-taskButton.addEventListener('click', ()=>{
-    let taskInput = document.querySelector('#task-value');
-    let taskValue = taskInput.value;
-    
+taskButton.addEventListener('click', createTask);
+
+function createTask() {
+    const taskDiv = document.createElement('div');
+    const nameDiv = document.createElement('div');
+    const closeDiv = document.createElement('div');
+    const editDiv = document.createElement('div');
+
+    const taskInput = document.querySelector('#task-value');
+    const taskValue = taskInput.value;
     taskInput.value = '';
 
-    let taskItem = document.createElement('div');
-    taskItem.innerText = taskValue;
+    nameDiv.innerText = taskValue;
+    closeDiv.innerText = 'x';
+    editDiv.innerText = 'edit';
 
-    let taskArea = document.querySelector('#task-container');
-    taskArea.appendChild(taskItem);
-})
+    closeDiv.addEventListener('click', removeTask)
+    editDiv.addEventListener('click', (e) => {
+        if(editDiv.innerText === 'edit') {
+            editTask(e);
+            editDiv.innerText = 'save';
+        }
+        else {
+            saveEdit(e);
+            editDiv.innerText = 'edit';
+        }
+    })
+
+    taskDiv.appendChild(nameDiv);
+    taskDiv.appendChild(editDiv);
+    taskDiv.appendChild(closeDiv);
+
+    const taskContainer = document.querySelector('#task-container');
+    taskContainer.appendChild(taskDiv);
+}
+
+function removeTask(evt) {
+    evt.target.parentElement.remove();
+}
+
+function editTask(evt) {
+    evt.target.previousElementSibling.setAttribute('contenteditable', 'true');
+}
+
+function saveEdit(evt) {
+    evt.target.previousElementSibling.setAttribute('contenteditable', 'false');
+}
