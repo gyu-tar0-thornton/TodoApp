@@ -7,6 +7,7 @@ function createTask() {
     const nameDiv = document.createElement('div');
     const closeDiv = document.createElement('div');
     const editDiv = document.createElement('div');
+    const dateDiv = document.createElement('div');
 
     const taskInput = document.querySelector('#task-value');
     const taskValue = taskInput.value;
@@ -15,6 +16,7 @@ function createTask() {
     nameDiv.innerText = taskValue;
     closeDiv.innerText = 'x';
     editDiv.innerText = 'edit';
+    dateDiv.innerText = (new Date()).toString();
 
     closeDiv.addEventListener('click', removeTask)
     editDiv.addEventListener('click', (e) => {
@@ -28,9 +30,16 @@ function createTask() {
         }
     })
 
+    editDiv.classList.add('editDiv')
+    closeDiv.classList.add('closeDiv');
+    dateDiv.classList.add('dateDiv');
+
     taskDiv.appendChild(nameDiv);
     taskDiv.appendChild(editDiv);
     taskDiv.appendChild(closeDiv);
+    taskDiv.appendChild(dateDiv);
+
+    taskDiv.classList.add('task');
 
     const taskContainer = document.querySelector('#task-container');
     taskContainer.appendChild(taskDiv);

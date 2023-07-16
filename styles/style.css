@@ -1,0 +1,88 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    width: 100%;
+}
+
+#task-input-area {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#task-input-area > input {
+    font-size: 1rem;
+}
+#task-input-area > button {
+    background-color: aliceblue;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#task-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.task {
+    align-items: center;
+    border: 5px solid cornflowerblue;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    justify-content: space-evenly;
+    margin: 20px 0 20px 0;
+    padding: 10px;
+    width: 50%;
+}
+
+.closeDiv {
+    color: rgb(255, 78, 78);
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.closeDiv:hover {
+    text-decoration: underline;
+}
+
+.editDiv {
+    color: rgb(74, 74, 255);
+    cursor: pointer;
+}
+
+.editDiv:hover {
+    text-decoration: underline;
+}
+
+.dateDiv {
+    font-size: 0.5rem;
+    font-weight: 500;
+}
